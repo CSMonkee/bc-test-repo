@@ -2,7 +2,8 @@ name: java-remove-catch
 description: Find try-catch-finally statements where the catch statement has no body (the catch clause could be omitted)
 
 on:
-  - repositoriesMatchingQuery: try {:[a]} catch (:[e]) { } finally {:[b]} lang:java patterntype:structural fork:only
+  - repositoriesMatchingQuery: try {:[a]} catch (:[e]) { } finally {:[b]} lang:java patterntype:structural
+  - repository: CSMonkee/SapMachine
 
 steps:
     - run: comby -in-place 'try {:[a]} catch (:[e]) { } finally {:[b]}' 'try {:[a]} finally {:[b]}' ${{ join repository.search_result_paths " " }}
