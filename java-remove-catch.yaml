@@ -3,7 +3,7 @@ description: Find try-catch-finally statements where the catch statement has no 
 
 on:
   - repositoriesMatchingQuery: try {:[a]} catch (:[e]) { } finally {:[b]} lang:java patterntype:structural
-  - repository: CSMonkee/SapMachine
+  - repository: github.com/CSMonkee/SapMachine
 
 steps:
     - run: comby -in-place 'try {:[a]} catch (:[e]) { } finally {:[b]}' 'try {:[a]} finally {:[b]}' ${{ join repository.search_result_paths " " }}
